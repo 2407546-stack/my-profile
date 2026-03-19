@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Odhiambo - Personal Profile</title>
+
+<style>
+body, h1, h2, h3, p, ul, ol, table, th, td, form, input, textarea {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+header {
+    background: #1a73e8;
+    color: white;
+    padding: 30px 10px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+nav {
+    background: #eee;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+ul, ol {
+    margin-top: 10px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form input[type="submit"] {
+    width: auto;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+form input[type="submit"]:hover {
+    background: #1a73e8;
+}
+
+footer {
+    background: #e53935;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form input, form textarea {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Personal Profile</h1>
+    <p>This website is created using HTML only.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#htmlskills">HTML Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>My name is Brian Odhiambo. I am a student at KCA University focused on Business Information Technology. My work focuses on the intersection of software engineering and business logic.</p>
+</section>
+
+<section id="background">
+    <h2>Background / Education</h2>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Institution</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td>2024 - Present</td>
+            <td>KCA University</td>
+            <td>DBIT</td>
+        </tr>
+    </table>
+</section>
+
+<section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>Database Management</li>
+        <li>Entrepreneurship</li>
+        <li>Communication</li>
+    </ul>
+</section>
+
+<section id="interests">
+    <h2>My Interests / Hobbies</h2>
+    <ol>
+        <li>Programming</li>
+        <li>Watching Movies</li>
+        <li>Wealth Creation</li>
+        <li>Music</li>
+    </ol>
+</section>
+
+<section id="htmlskills">
+    <h2>HTML as One of My Core Skills</h2>
+    <article>
+        <h3>What is HTML?</h3>
+        <p>HTML stands for HyperText Markup Language. It is used to create and structure web pages.</p>
+    </article>
+    <article>
+        <h3>Structural Elements</h3>
+        <p><b>&lt;header&gt;</b> – Defines the top section of a page.</p>
+        <p><b>&lt;section&gt;</b> – Groups related content.</p>
+        <p><b>&lt;footer&gt;</b> – Defines the bottom of a page.</p>
+    </article>
+    <article>
+        <h3>Text Formatting Elements</h3>
+        <p><b>&lt;b&gt;</b> – Makes text bold.</p>
+        <p><i>&lt;i&gt;</i> – Italic text.</p>
+        <p><strong>&lt;strong&gt;</strong> – Important text.</p>
+    </article>
+    <article>
+        <h3>Lists</h3>
+        <p>&lt;ul&gt; – Unordered list.</p>
+        <p>&lt;ol&gt; – Ordered list.</p>
+    </article>
+    <article>
+        <h3>Links</h3>
+        <p>&lt;a&gt; – Used to create hyperlinks.</p>
+    </article>
+    <article>
+        <h3>Images</h3>
+        <p>&lt;img&gt; – Displays an image on a webpage.</p>
+    </article>
+    <article>
+        <h3>Tables</h3>
+        <p>&lt;table&gt; – Organizes data into rows and columns.</p>
+    </article>
+    <article>
+        <h3>Forms</h3>
+        <p>&lt;form&gt; – Collects user input.</p>
+    </article>
+    <article>
+        <h3>Semantic Elements</h3>
+        <p>&lt;article&gt; – Represents independent content.</p>
+        <p>&lt;nav&gt; – Navigation links.</p>
+    </article>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <label>Name:</label><br>
+        <input type="text" placeholder="Your Name"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" placeholder="Your Email"><br><br>
+
+        <label>Message:</label><br>
+        <textarea placeholder="Your Message"></textarea><br><br>
+
+        <input type="submit" value="Send">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2026 Brian Odhiambo. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
