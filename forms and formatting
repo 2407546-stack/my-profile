@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms - User Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .description {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #2d3748;
+            margin: 30px 0 15px 0;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: #f7fafc;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gender-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .radio-option:hover {
+            background-color: #edf2f7;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.5;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-reset {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-reset:hover {
+            background-color: #cbd5e0;
+            transform: translateY(-2px);
+        }
+
+        .components-list {
+            background-color: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .components-list dt {
+            font-weight: 700;
+            color: #2d3748;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .components-list dt:first-child {
+            margin-top: 0;
+        }
+
+        .components-list dd {
+            margin-left: 20px;
+            margin-top: 5px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .data-capture {
+            background-color: #f0fff4;
+            border: 2px solid #9ae6b4;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .data-capture ol {
+            margin-left: 20px;
+            color: #2f855a;
+            font-weight: 500;
+        }
+
+        .data-capture li {
+            margin: 8px 0;
+        }
+
+        input:user-valid {
+            border-color: #48bb78;
+        }
+
+        input:user-invalid {
+            border-color: #f56565;
+        }
+
+        @media (max-width: 600px) {
+            .name-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .gender-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        textarea::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>HTML Forms</h1>
+    <p class="description">
+        HTML forms are used to collect input from users in web applications. The information entered by users is processed by the business logic of the web application and may be stored in a database.
+    </p>
+
+    <h2>Components of a HTML Form</h2>
+    <dl class="components-list">
+        <dt><b>Form</b></dt>
+        <dd>The <code>&lt;form&gt;</code> element is used to create a form that collects user input. Attributes include <b>action</b> and <b>method</b>.</dd>
+        
+        <dt><b>Input</b></dt>
+        <dd>The <code>&lt;input&gt;</code> element is used to collect different types of user data such as text, dates, or radio selections.</dd>
+        
+        <dt><b>Label</b></dt>
+        <dd>The <code>&lt;label&gt;</code> element provides a description for an input field.</dd>
+        
+        <dt><b>Textarea</b></dt>
+        <dd>The <code>&lt;textarea&gt;</code> element allows users to enter multiple lines of text.</dd>
+        
+        <dt><b>Button</b></dt>
+        <dd>The <code>&lt;button&gt;</code> element is used to submit, clear, or cancel form data.</dd>
+    </dl>
+
+    <h2>Data to be Captured</h2>
+    <div class="data-capture">
+        <p style="margin-bottom: 10px; font-weight: 600; color: #2f855a;">The form captures the following information:</p>
+        <ol>
+            <li>First Name and Last Name</li>
+            <li>Date of Birth</li>
+            <li>Gender (Male or Female)</li>
+            <li>Opinion about the phrase <b class="highlight">Ubuntu</b></li>
+        </ol>
+    </div>
+
+    <h2 style="margin-top: 40px;">User Registration Form</h2>
+    
+    <form action="/submit" method="POST" id="userForm">
+
+        <div class="name-row">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="gender-group">
+                <div class="radio-option">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ubuntuOpinion">What is your opinion about <span class="highlight">Ubuntu</span>?</label>
+            <textarea id="ubuntuOpinion" name="ubuntuOpinion" placeholder="Share your thoughts about Ubuntu (the African philosophy or the operating system)..." required></textarea>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit">Submit Form</button>
+            <button type="reset" class="btn-reset">Clear Form</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        const message = `Thank you for your submission!\n\n` +
+                       `Name: ${data.firstName} ${data.lastName}\n` +
+                       `Date of Birth: ${data.dob}\n` +
+                       `Gender: ${data.gender}\n` +
+                       `Ubuntu Opinion: ${data.ubuntuOpinion.substring(0, 50)}...`;
+        
+        alert(message);
+    });
+
+    const radioOptions = document.querySelectorAll('.radio-option');
+    radioOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            this.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+</script>
+
+</body>
+</html>
